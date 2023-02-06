@@ -1,0 +1,82 @@
+[
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Dagger.cpp.obj -c D:\\DungeonsAndCPP\\src\\Dagger.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Dagger.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Enemy.cpp.obj -c D:\\DungeonsAndCPP\\src\\Enemy.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Enemy.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Goblin.cpp.obj -c D:\\DungeonsAndCPP\\src\\Goblin.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Goblin.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Item.cpp.obj -c D:\\DungeonsAndCPP\\src\\Item.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Item.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Misc.cpp.obj -c D:\\DungeonsAndCPP\\src\\Misc.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Misc.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Orc.cpp.obj -c D:\\DungeonsAndCPP\\src\\Orc.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Orc.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Player.cpp.obj -c D:\\DungeonsAndCPP\\src\\Player.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Player.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Rod.cpp.obj -c D:\\DungeonsAndCPP\\src\\Rod.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Rod.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Rogue.cpp.obj -c D:\\DungeonsAndCPP\\src\\Rogue.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Rogue.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Scenes.cpp.obj -c D:\\DungeonsAndCPP\\src\\Scenes.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Scenes.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Sword.cpp.obj -c D:\\DungeonsAndCPP\\src\\Sword.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Sword.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Troll.cpp.obj -c D:\\DungeonsAndCPP\\src\\Troll.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Troll.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Warrior.cpp.obj -c D:\\DungeonsAndCPP\\src\\Warrior.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Warrior.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Weapon.cpp.obj -c D:\\DungeonsAndCPP\\src\\Weapon.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Weapon.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Wizard.cpp.obj -c D:\\DungeonsAndCPP\\src\\Wizard.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\Wizard.cpp"
+},
+{
+  "directory": "D:/DungeonsAndCPP/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\main.cpp.obj -c D:\\DungeonsAndCPP\\src\\main.cpp",
+  "file": "D:\\DungeonsAndCPP\\src\\main.cpp"
+}
+]
