@@ -1,8 +1,8 @@
 #include <iostream>
+#include <SFML/Audio.hpp>
 #include "Misc.h"
 #include "Scenes.h"
 #include "Item.h"
-#include "Weapon.h"
 #include "Sword.h"
 #include "Orc.h"
 #include "Goblin.h"
@@ -15,29 +15,31 @@ void InventoryClean(Item *&invPtr)
 int main()
 {
 
-    Player *player = nullptr;
-    Weapon *WeaponItem = nullptr;
-    std::vector<Item *> Inventory;
+    sf::Music music;
+    music.openFromFile("Main_Menu.wav");
+    music.setVolume(60);
 
-    if (IntroText())
+    Player *player = nullptr;
+        if (IntroText())
     {
+        music.play();
+
         player = SetupPlayer();
-        CrossRoadsScene(player, Inventory);
-        WeaponItem = FindWeaponTypeInInventory(player, Inventory);
+        std::cout << player->getPlayerType() << std::endl;
+        CrossRoadsScene(player, player->getInventory());
     }
-    if (WeaponItem != nullptr)
+
+    else
     {
-        WeaponItem->getItemName();
+        music.stop();
     }
-    player->checkInventory(Inventory);
 
     std::cout << "Clear Memory\n";
     system("pause");
 
-    for (auto Item : Inventory)
+    for (auto Item : player->getInventory())
     {
         InventoryClean(Item);
     }
-    delete player;
     return 0;
 }

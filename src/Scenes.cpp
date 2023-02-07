@@ -6,9 +6,11 @@ void ForestScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
     std::cout << "You entered in Forest" << std::endl;
     if (chestScene())
     {
-        AddWeaponToInventory(playerPtr, inventoryPtr);
+        playerPtr->CreateWeaponItem();
+
+        // playerPtr->addItemToInventory(playerPtr->CreateItem());
     }
-    BattleScene();
+    // BattleScene();
 }
 
 void VillageScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
@@ -16,10 +18,11 @@ void VillageScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
     std::cout << "You entered in Village" << std::endl;
     if (chestScene())
     {
-        AddWeaponToInventory(playerPtr, inventoryPtr);
-    }
-    BattleScene();
+        playerPtr->CreateWeaponItem();
 
+        // playerPtr->addItemToInventory(playerPtr->CreateItem());
+    }
+    // BattleScene();
 }
 
 void CaveScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
@@ -28,10 +31,10 @@ void CaveScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
 
     if (chestScene())
     {
-        AddWeaponToInventory(playerPtr, inventoryPtr);
+        playerPtr->CreateWeaponItem();
+        // playerPtr->addItemToInventory(playerPtr->CreateItem());
     }
-    BattleScene();
-
+    //  BattleScene();
 }
 
 bool chestScene()

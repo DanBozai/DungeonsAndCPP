@@ -1,6 +1,6 @@
 #include "Rod.h"
 
-Rod::Rod(std::string item_name):Weapon(item_name)
+Rod::Rod(std::string item_name):Item(item_name,RodType)
 {
 std::cout<< "Rod Crea\n";
 

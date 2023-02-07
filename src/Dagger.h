@@ -2,8 +2,8 @@
 #define DAGGER_H
 
 #pragma once
-#include "Weapon.h"
-class Dagger : public Weapon
+#include "Item.h"
+class Dagger : public Item
 {
 public:
     Dagger(std::string item_name);

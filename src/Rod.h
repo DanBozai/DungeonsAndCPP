@@ -2,14 +2,15 @@
 #define ROD_H
 
 #pragma once
-#include "Weapon.h"
-class Rod:public Weapon
+#include "Item.h"
+class Rod:public Item
 {
 public:
     Rod(std::string item_name);
     ~Rod();
 
 private:
+
 
 };
 

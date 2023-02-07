@@ -10,6 +10,7 @@ public:
     ~Warrior();
 
 private:
+    
     void Attack() override;
 };
 

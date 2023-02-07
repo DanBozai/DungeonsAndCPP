@@ -1,6 +1,6 @@
 #include "Wizard.h"
 
-Wizard::Wizard(std::string name) : Player(name)
+Wizard::Wizard(std::string name) : Player(name,WizardType)
 {
 
     std::cout << "Welcome to DungeonsAndCPP\n";

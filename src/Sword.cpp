@@ -1,6 +1,6 @@
 #include "Sword.h"
 
-Sword::Sword(std::string item_name):Weapon(item_name)
+Sword::Sword(std::string item_name):Item(item_name,SwordType)
 {
 std::cout<< "Sword Crea\n";
 

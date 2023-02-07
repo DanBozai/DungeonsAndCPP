@@ -140,13 +140,6 @@ build CMakeFiles/DungeonsAndCpp.dir/src/Warrior.cpp.obj: CXX_COMPILER__DungeonsA
   OBJECT_DIR = CMakeFiles\DungeonsAndCpp.dir
   OBJECT_FILE_DIR = CMakeFiles\DungeonsAndCpp.dir\src
 
-build CMakeFiles/DungeonsAndCpp.dir/src/Weapon.cpp.obj: CXX_COMPILER__DungeonsAndCpp_Debug D$:/DungeonsAndCPP/src/Weapon.cpp || cmake_object_order_depends_target_DungeonsAndCpp
-  DEP_FILE = CMakeFiles\DungeonsAndCpp.dir\src\Weapon.cpp.obj.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -ID:/DungeonsAndCPP/include
-  OBJECT_DIR = CMakeFiles\DungeonsAndCpp.dir
-  OBJECT_FILE_DIR = CMakeFiles\DungeonsAndCpp.dir\src
-
 build CMakeFiles/DungeonsAndCpp.dir/src/Wizard.cpp.obj: CXX_COMPILER__DungeonsAndCpp_Debug D$:/DungeonsAndCPP/src/Wizard.cpp || cmake_object_order_depends_target_DungeonsAndCpp
   DEP_FILE = CMakeFiles\DungeonsAndCpp.dir\src\Wizard.cpp.obj.d
   FLAGS = -g -std=gnu++17
@@ -169,9 +162,9 @@ build CMakeFiles/DungeonsAndCpp.dir/src/main.cpp.obj: CXX_COMPILER__DungeonsAndC
 #############################################
 # Link the executable DungeonsAndCpp.exe
 
-build DungeonsAndCpp.exe: CXX_EXECUTABLE_LINKER__DungeonsAndCpp_Debug CMakeFiles/DungeonsAndCpp.dir/src/Dagger.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Enemy.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Goblin.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Item.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Misc.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Orc.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Player.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Rod.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Rogue.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Scenes.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Sword.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Troll.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Warrior.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Weapon.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Wizard.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/main.cpp.obj
+build DungeonsAndCpp.exe: CXX_EXECUTABLE_LINKER__DungeonsAndCpp_Debug CMakeFiles/DungeonsAndCpp.dir/src/Dagger.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Enemy.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Goblin.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Item.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Misc.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Orc.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Player.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Rod.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Rogue.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Scenes.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Sword.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Troll.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Warrior.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/Wizard.cpp.obj CMakeFiles/DungeonsAndCpp.dir/src/main.cpp.obj
   FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
   OBJECT_DIR = CMakeFiles\DungeonsAndCpp.dir
   POST_BUILD = cd .
   PRE_LINK = cd .

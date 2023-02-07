@@ -2,8 +2,8 @@
 #define SWORD_H
 
 #pragma once
-#include "Weapon.h"
-class Sword:public Weapon
+#include "Item.h"
+class Sword:public Item
 {
 public:
     Sword(std::string item_name);

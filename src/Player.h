@@ -4,26 +4,42 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "Weapon.h"
 #include "Item.h"
+#include "Sword.h"
+#include "Rod.h"
+#include "Dagger.h"
 
+enum playerTypeClass
+{
+    WizardType = 1,
+    WarriorType = 2,
+    RogueType = 3
+};
 class Player
 {
 public:
-    Player(std::string name);
+    Player(std::string name, int classType);
     virtual ~Player();
+
+
     void getName();
-    void checkInventory(std::vector<Item*> &Inventory);
+    std::vector<Item *> &getInventory();
+    void addItemToInventory(Item *item);
+    int getPlayerType();
+    Item *CreateWeaponItem();
 
 private:
-
+    const int idTypePlayerClass;
+    unsigned int Health;
     virtual void Attack();
     const std::string m_name;
-    
-    std::vector<Item*> inv;
-   
-protected:
 
+    std::vector<Item *> Inventory;
+    Item *FindWeaponTypeInInventory();
+
+    
+
+protected:
 };
 
 #endif

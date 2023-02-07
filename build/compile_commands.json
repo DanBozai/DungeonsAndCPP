@@ -66,11 +66,6 @@
 },
 {
   "directory": "D:/DungeonsAndCPP/build",
-  "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Weapon.cpp.obj -c D:\\DungeonsAndCPP\\src\\Weapon.cpp",
-  "file": "D:\\DungeonsAndCPP\\src\\Weapon.cpp"
-},
-{
-  "directory": "D:/DungeonsAndCPP/build",
   "command": "C:\\msys64\\mingw64\\bin\\g++.exe -ID:/DungeonsAndCPP/include -g -std=gnu++17 -o CMakeFiles\\DungeonsAndCpp.dir\\src\\Wizard.cpp.obj -c D:\\DungeonsAndCPP\\src\\Wizard.cpp",
   "file": "D:\\DungeonsAndCPP\\src\\Wizard.cpp"
 },

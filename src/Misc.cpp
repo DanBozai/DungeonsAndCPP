@@ -29,7 +29,7 @@ Player *SetupPlayer()
     Player *chooseClassCharacterPtr;
 
     ClearTerminal();
-    std::cout << "Bun venit in lumea fantastica\n";
+    std::cout << "Welcome!\n";
 
     std::cout << "Choose a name for your character\n";
     std::cin >> playerName;
@@ -64,66 +64,9 @@ void ClearTerminal()
     system("CLS");
 }
 
-Weapon *AddWeaponToInventory(Player *playerPtr, std::vector<Item *> &inventory)
-{
-    Weapon *weapon = nullptr;
-    if (typeid(*playerPtr) == typeid(Warrior))
-    {
-        Sword *swordPtr = new Sword("Warrior Sword");
-        weapon = swordPtr;
-        inventory.push_back(swordPtr);
-    }
-    else if (typeid(*playerPtr) == typeid(Rogue))
-    {
-        Dagger *DaggerPtr = new Dagger("Rogue Dagger");
-        weapon = DaggerPtr;
-        inventory.push_back(DaggerPtr);
-    }
-    else if (typeid(*playerPtr) == typeid(Wizard))
-    {
-        Rod *RodPtr = new Rod("Wizard Rod");
-        weapon = RodPtr;
-        inventory.push_back(RodPtr);
-    }
-    return weapon;
-}
 
-Weapon *FindWeaponTypeInInventory(Player* &playerPtr, std::vector<Item *> &inventory)
-{
-    Weapon *ptr = nullptr;
-    if (typeid(*playerPtr) == (typeid(Warrior)))
-    {
-        for (auto it : inventory)
-        {
-            if (typeid(*it) == typeid(Sword))
-            {
-                ptr = dynamic_cast<Weapon*>(it);
-            }
-        }
-    }
-    else if (typeid(*playerPtr) == (typeid(Wizard)))
-    {
-        for (auto it : inventory)
-        {
-            if (typeid(*it) == typeid(Rod))
-            {
-                ptr = dynamic_cast<Weapon*>(it);
-            }
-        }
-    }
-    if (typeid(*playerPtr) == (typeid(Rogue)))
-    {
-        for (auto it : inventory)
-        {
-            if (typeid(*it) == typeid(Dagger))
-            {
-                ptr =dynamic_cast<Weapon*>(it);
-            }
-        }
-    }
 
-    return ptr;
-}
+
 
 int generateRandomNum()
 {

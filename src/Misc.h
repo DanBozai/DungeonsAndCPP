@@ -20,8 +20,6 @@
 bool IntroText();
 Player *SetupPlayer();
 void ClearTerminal();
-Weapon *AddWeaponToInventory(Player *playerPtr, std::vector<Item *> &Inventory);
-Weapon *FindWeaponTypeInInventory(Player *&playerPtr, std::vector<Item *> &inventory);
 int generateRandomNum();
 
 #endif // __MISC_H__

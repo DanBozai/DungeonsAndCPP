@@ -1,6 +1,6 @@
 #include "Rogue.h"
 
-Rogue::Rogue(std::string name) : Player(name)
+Rogue::Rogue(std::string name) : Player(name,RogueType)
 {
     std::cout << "Welcome to DungeonsAndCPP\n";
     std::cout << name << ", as a rogue, your cunning and agility will be your greatest assets as you navigate the world and undertake daring endeavors.\n";

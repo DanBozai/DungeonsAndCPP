@@ -1,6 +1,6 @@
 #include "Dagger.h"
 
-Dagger::Dagger(std::string item_name):Weapon(item_name)
+Dagger::Dagger(std::string item_name):Item(item_name,DaggerType)
 {
 std::cout<< "Dagger Crea\n";
 
