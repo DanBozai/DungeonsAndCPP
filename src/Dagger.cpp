@@ -11,3 +11,8 @@ Dagger::~Dagger()
 std::cout<< "Dagger Dest\n";
 
 }
+
+int Dagger::getWeaponAttack()
+{
+    return daggerAttack;
+}

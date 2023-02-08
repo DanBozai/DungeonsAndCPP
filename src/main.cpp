@@ -18,9 +18,10 @@ int main()
     sf::Music music;
     music.openFromFile("Main_Menu.wav");
     music.setVolume(60);
+    music.stop();
 
     Player *player = nullptr;
-        if (IntroText())
+    if (IntroText())
     {
         music.play();
 
@@ -31,9 +32,8 @@ int main()
 
     else
     {
-        music.stop();
     }
-
+    //
     std::cout << "Clear Memory\n";
     system("pause");
 
@@ -41,5 +41,6 @@ int main()
     {
         InventoryClean(Item);
     }
+    delete player;
     return 0;
 }

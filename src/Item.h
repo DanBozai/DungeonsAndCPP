@@ -21,9 +21,13 @@ public:
     void getItemName();
     int getIdWeaponType();
 
+    virtual int getWeaponAttack();
+
 private:
     const int idTypeItem;
     std::string itemName;
+
+protected:
 };
 
 #endif

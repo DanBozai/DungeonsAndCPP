@@ -8,9 +8,11 @@ class Sword:public Item
 public:
     Sword(std::string item_name);
     ~Sword();
-
+   int getWeaponAttack() override;
+    
 private:
 
+    int SwordAttack =100;
 };
 
 #endif

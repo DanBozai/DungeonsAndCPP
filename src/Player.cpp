@@ -51,7 +51,7 @@ Item *Player::CreateWeaponItem()
         Inventory.push_back(weapon);
         // playerPtr->addItemToInventory(weapon);
     }
-   
+
     return weapon;
 }
 
@@ -59,26 +59,73 @@ void Player::Attack()
 {
 }
 
-Item *Player::FindWeaponTypeInInventory()
+void Player::FindWeaponTypeInInventory()
 {
-    Item *ptr = nullptr;
     for (auto it : Inventory)
     {
-        if (it->getIdWeaponType() == getPlayerType())
+        if (it->getIdWeaponType() == WarriorType)
         {
-            ptr = dynamic_cast<Sword *>(it);
+            WeaponSlot = dynamic_cast<Sword *>(it);
         }
-        else if (it->getIdWeaponType() == getPlayerType())
+        else if (it->getIdWeaponType() == WizardType)
         {
-            ptr = dynamic_cast<Rod *>(it);
+            WeaponSlot = dynamic_cast<Rod *>(it);
         }
-        else if (it->getIdWeaponType() == getPlayerType())
+        else if (it->getIdWeaponType() == RogueType)
         {
-            ptr = dynamic_cast<Dagger *>(it);
+            WeaponSlot = dynamic_cast<Dagger *>(it);
         }
     }
+    if (WeaponSlot != nullptr)
+    {
+        WeaponSlot->getItemName();
+        std::cout << "\n";
+    }
 
-    return ptr;
+}
+
+void Player::playAnimation()
+{
+    std::chrono::milliseconds ms(15);
+
+    const std::string filename = "WarriorAttack (";
+    std::string dynamicFileName;
+    int indexNum = 1;
+
+    for (int i = 1; i <= 105; i++)
+    {
+        std::string index = std::to_string(indexNum);
+
+        dynamicFileName += filename;
+        dynamicFileName += index;
+        openTextFile(dynamicFileName);
+        index.clear();
+        dynamicFileName.clear();
+        std::this_thread::sleep_for(ms);
+        system("CLS");
+        indexNum++;
+    }
+}
+
+void Player::equipWeapon()
+{
+    FindWeaponTypeInInventory();
+}
+
+void Player::openTextFile(std::string &file_name)
+{
+    std::string line;
+    std::string d_fileName = file_name + ").txt";
+    std::ifstream file(d_fileName);
+
+    if (file.is_open())
+    {
+        while (std::getline(file, line))
+        {
+            std::cout << line << "\n";
+        }
+        file.close();
+    }
 }
 
 std::vector<Item *> &Player::getInventory()

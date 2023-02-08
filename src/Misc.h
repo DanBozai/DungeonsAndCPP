@@ -5,7 +5,6 @@
 
 #include <iostream>
 #include <string>
-#include <random>
 #include <vector>
 #include "Wizard.h"
 #include "Warrior.h"
@@ -20,6 +19,5 @@
 bool IntroText();
 Player *SetupPlayer();
 void ClearTerminal();
-int generateRandomNum();
 
 #endif // __MISC_H__

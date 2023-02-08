@@ -27,6 +27,6 @@ void VillageScene(Player* &playerPtr, std::vector<Item *> &inventoryPtr);
 void CaveScene(Player* &playerPtr, std::vector<Item *> &inventoryPtr);
 
 bool chestScene();
-//void BattleScene();
+void BattleScene();
 
 #endif // __SCENES_H__

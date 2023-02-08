@@ -7,10 +7,12 @@ void ForestScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
     if (chestScene())
     {
         playerPtr->CreateWeaponItem();
-
-        // playerPtr->addItemToInventory(playerPtr->CreateItem());
+        playerPtr->equipWeapon();
+        
     }
-    // BattleScene();
+    BattleScene();
+   // playerPtr->playAnimation();
+
 }
 
 void VillageScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
@@ -19,10 +21,12 @@ void VillageScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
     if (chestScene())
     {
         playerPtr->CreateWeaponItem();
-
-        // playerPtr->addItemToInventory(playerPtr->CreateItem());
+        playerPtr->equipWeapon();
+        
     }
-    // BattleScene();
+    BattleScene();
+    //playerPtr->playAnimation();
+
 }
 
 void CaveScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
@@ -32,9 +36,11 @@ void CaveScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
     if (chestScene())
     {
         playerPtr->CreateWeaponItem();
-        // playerPtr->addItemToInventory(playerPtr->CreateItem());
+        playerPtr->equipWeapon();
+
     }
-    //  BattleScene();
+    BattleScene();
+    //playerPtr->playAnimation();
 }
 
 bool chestScene()
@@ -92,26 +98,27 @@ void CrossRoadsScene(Player *&playerP, std::vector<Item *> &inventoryPtr)
 
 void BattleScene()
 {
-    int monsterId = generateRandomNum();
     Enemy *ptrEnemy = nullptr;
+    int monsterId = ptrEnemy->generateRandomEnemy();
+
     switch (monsterId)
     {
-    case 1:
+    case OrcType:
         ptrEnemy = new Orc();
         break;
-    case 2:
+    case TrollType:
         ptrEnemy = new Troll();
 
         break;
-    case 3:
+    case GoblinType:
         ptrEnemy = new Goblin();
 
         break;
     default:
         break;
     }
+    
 
-    ptrEnemy->printEnemyName();
     ptrEnemy->printEnemyAttack();
     delete ptrEnemy;
 }

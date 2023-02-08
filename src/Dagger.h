@@ -8,8 +8,10 @@ class Dagger : public Item
 public:
     Dagger(std::string item_name);
     ~Dagger();
+    int getWeaponAttack() override;
 
 private:
+    int daggerAttack = 70;
 };
 
 #endif

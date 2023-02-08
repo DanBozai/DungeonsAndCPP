@@ -4,6 +4,10 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <fstream>
+
+#include <chrono>
+#include <thread>
 #include "Item.h"
 #include "Sword.h"
 #include "Rod.h"
@@ -27,6 +31,9 @@ public:
     void addItemToInventory(Item *item);
     int getPlayerType();
     Item *CreateWeaponItem();
+    virtual void playAnimation();
+    void equipWeapon();
+    
 
 private:
     const int idTypePlayerClass;
@@ -35,8 +42,10 @@ private:
     const std::string m_name;
 
     std::vector<Item *> Inventory;
-    Item *FindWeaponTypeInInventory();
-
+    Item *WeaponSlot=nullptr;
+    
+    void FindWeaponTypeInInventory();
+    void openTextFile(std::string&filename);
     
 
 protected:

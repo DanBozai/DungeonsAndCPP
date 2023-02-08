@@ -11,3 +11,8 @@ Rod::~Rod()
 std::cout<< "Rod Dest\n";
 
 }
+
+int Rod::getWeaponAttack()
+{
+    return rodAttack;
+}

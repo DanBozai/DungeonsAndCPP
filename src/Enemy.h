@@ -5,7 +5,15 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <random>
 
+enum EnemyType
+{
+    OrcType = 1,
+    TrollType,
+    GoblinType
+
+};
 class Enemy
 {
 public:
@@ -13,10 +21,10 @@ public:
     virtual ~Enemy();
     virtual void printEnemyName();
     virtual void printEnemyAttack();
+    int generateRandomEnemy();
+
 private:
-const std::string enemyName;
-
-
+    const std::string enemyName;
 };
 
 #endif

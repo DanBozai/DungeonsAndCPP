@@ -1,7 +1,6 @@
 #include "Item.h"
 
-
-Item::Item(std::string item_name,int itemType) : itemName(item_name),idTypeItem(itemType)
+Item::Item(std::string item_name, int itemType) : itemName(item_name), idTypeItem(itemType)
 {
     std::cout << "Item Crea\n";
 }
@@ -19,4 +18,12 @@ void Item::getItemName()
 int Item::getIdWeaponType()
 {
     return idTypeItem;
+}
+
+int Item::getWeaponAttack()
+{
+    int item=0;
+     
+        return item; 
+    
 }

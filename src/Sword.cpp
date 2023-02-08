@@ -11,3 +11,8 @@ Sword::~Sword()
 std::cout<< "Sword Dest\n";
 
 }
+
+int Sword::getWeaponAttack()
+{
+    return SwordAttack;
+}
