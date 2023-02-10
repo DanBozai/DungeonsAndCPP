@@ -1,6 +1,6 @@
 #include "Troll.h"
 
-Troll::Troll():enemyName("Troll")
+Troll::Troll():enemyName("Troll"),Enemy("TrollAttack (")
 {
     std::cout<< "Troll Crea\n";
 

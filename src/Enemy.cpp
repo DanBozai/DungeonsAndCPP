@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-Enemy::Enemy()
+Enemy::Enemy(std::string AttackAnimationName) : AnimationTextFileName(AttackAnimationName)
 {
     std::cout << "Enemy Crea\n";
 }
@@ -21,12 +21,16 @@ void Enemy::printEnemyAttack()
 
 int Enemy::generateRandomEnemy()
 {
-    
-        std::random_device rd;  // Will be used to obtain a seed for the random number engine
-        std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
-        std::uniform_int_distribution<> distribNum(OrcType, GoblinType);
-        int randomNumber = distribNum(gen);
 
-        return randomNumber;
-    
+    std::random_device rd;  // Will be used to obtain a seed for the random number engine
+    std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+    std::uniform_int_distribution<> distribNum(OrcType, GoblinType);
+    int randomNumber = distribNum(gen);
+
+    return randomNumber;
+}
+
+std::string Enemy::getAnimationName()
+{
+    return AnimationTextFileName;
 }

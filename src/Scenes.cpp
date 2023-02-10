@@ -8,11 +8,9 @@ void ForestScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
     {
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
-        
     }
-    BattleScene();
-   // playerPtr->playAnimation();
-
+    // BattleScene();
+    // playerPtr->playAnimation();
 }
 
 void VillageScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
@@ -22,11 +20,8 @@ void VillageScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
     {
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
-        
     }
-    BattleScene();
-    //playerPtr->playAnimation();
-
+    // BattleScene();
 }
 
 void CaveScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
@@ -37,10 +32,14 @@ void CaveScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
     {
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
-
     }
-    BattleScene();
-    //playerPtr->playAnimation();
+    Enemy *goblin = new Goblin();
+    playerAttackAnimation(playerPtr, goblin);
+
+    // std::cout<< "next attack goblin\n";
+    // system("pause");
+    EnemyAttackAnimation(goblin,playerPtr);
+    delete goblin;
 }
 
 bool chestScene()
@@ -117,7 +116,6 @@ void BattleScene()
     default:
         break;
     }
-    
 
     ptrEnemy->printEnemyAttack();
     delete ptrEnemy;

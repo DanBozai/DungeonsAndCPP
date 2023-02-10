@@ -17,14 +17,16 @@ enum EnemyType
 class Enemy
 {
 public:
-    Enemy();
+    Enemy(std::string AttackAnimationName);
     virtual ~Enemy();
     virtual void printEnemyName();
     virtual void printEnemyAttack();
     int generateRandomEnemy();
+    std::string getAnimationName();
 
 private:
     const std::string enemyName;
+    const std::string AnimationTextFileName;
 };
 
 #endif

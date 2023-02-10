@@ -1,6 +1,6 @@
 #include "Goblin.h"
 
-Goblin::Goblin():enemyName("Goblin")
+Goblin::Goblin():enemyName("Goblin"),Enemy("GoblinAttack (")
 {
     std::cout<< "Goblin Crea\n";
 

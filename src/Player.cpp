@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(std::string name, int classType) : m_name(name), idTypePlayerClass(classType)
+Player::Player(std::string name, int classType,std::string AttackAnimationName) : m_name(name), idTypePlayerClass(classType),AnimationTextFileName(AttackAnimationName)
 {
     std::cout << "Player Created\n\n";
 }
@@ -31,7 +31,7 @@ Item *Player::CreateWeaponItem()
 
     if (getPlayerType() == WizardType)
     {
-        Rod *rodPtr = new Rod("The Staff of Water");
+        Rod *rodPtr = new Rod("The Dark Rod");
         weapon = rodPtr;
         Inventory.push_back(weapon);
         // playerPtr->addItemToInventory(weapon);
@@ -53,6 +53,11 @@ Item *Player::CreateWeaponItem()
     }
 
     return weapon;
+}
+
+std::string Player::getNameAnimation()
+{
+    return AnimationTextFileName;
 }
 
 void Player::Attack()
@@ -81,51 +86,11 @@ void Player::FindWeaponTypeInInventory()
         WeaponSlot->getItemName();
         std::cout << "\n";
     }
-
-}
-
-void Player::playAnimation()
-{
-    std::chrono::milliseconds ms(15);
-
-    const std::string filename = "WarriorAttack (";
-    std::string dynamicFileName;
-    int indexNum = 1;
-
-    for (int i = 1; i <= 105; i++)
-    {
-        std::string index = std::to_string(indexNum);
-
-        dynamicFileName += filename;
-        dynamicFileName += index;
-        openTextFile(dynamicFileName);
-        index.clear();
-        dynamicFileName.clear();
-        std::this_thread::sleep_for(ms);
-        system("CLS");
-        indexNum++;
-    }
 }
 
 void Player::equipWeapon()
 {
     FindWeaponTypeInInventory();
-}
-
-void Player::openTextFile(std::string &file_name)
-{
-    std::string line;
-    std::string d_fileName = file_name + ").txt";
-    std::ifstream file(d_fileName);
-
-    if (file.is_open())
-    {
-        while (std::getline(file, line))
-        {
-            std::cout << line << "\n";
-        }
-        file.close();
-    }
 }
 
 std::vector<Item *> &Player::getInventory()

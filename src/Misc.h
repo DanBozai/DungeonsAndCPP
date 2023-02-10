@@ -6,11 +6,13 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include "Wizard.h"
 #include "Warrior.h"
 #include "Rogue.h"
 #include "Dagger.h"
 #include "Sword.h"
+#include "Enemy.h"
 #include "Rod.h"
 #include "Goblin.h"
 #include "Troll.h"
@@ -19,5 +21,7 @@
 bool IntroText();
 Player *SetupPlayer();
 void ClearTerminal();
-
+void readAndPrintTextAnimation(std::string &attackerAnimationNameFile, std::string &EnemyFrame);
+void playerAttackAnimation(Player *&player, Enemy *&enemy);
+void EnemyAttackAnimation(Enemy *&enemy,Player *&player);
 #endif // __MISC_H__

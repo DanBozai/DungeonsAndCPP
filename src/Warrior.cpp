@@ -1,7 +1,7 @@
 #include "Warrior.h"
 
 
-Warrior::Warrior(std::string name) : Player(name,WarriorType)
+Warrior::Warrior(std::string name) : Player(name,WarriorType,"WarriorAttack (")
 {
     std::cout << "Welcome to DungeonsAndCPP\n";
     std::cout << name << ", as a warrior, your training and physical prowess will be your greatest weapons as you explore the world and face its challenges.\n";

@@ -1,6 +1,6 @@
 #include "Orc.h"
 
-Orc::Orc() : enemyName("Orc")
+Orc::Orc() : enemyName("Orc"),Enemy("OrcAttack (")
 {
     std::cout << "Orc Crea\n";
 }

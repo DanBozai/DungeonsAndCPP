@@ -4,7 +4,6 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <fstream>
 
 #include <chrono>
 #include <thread>
@@ -22,7 +21,7 @@ enum playerTypeClass
 class Player
 {
 public:
-    Player(std::string name, int classType);
+    Player(std::string name, int classType,std::string AttackAnimationName);
     virtual ~Player();
 
 
@@ -31,7 +30,7 @@ public:
     void addItemToInventory(Item *item);
     int getPlayerType();
     Item *CreateWeaponItem();
-    virtual void playAnimation();
+    virtual std::string getNameAnimation();
     void equipWeapon();
     
 
@@ -43,9 +42,8 @@ private:
 
     std::vector<Item *> Inventory;
     Item *WeaponSlot=nullptr;
-    
+    const std::string AnimationTextFileName;
     void FindWeaponTypeInInventory();
-    void openTextFile(std::string&filename);
     
 
 protected:

@@ -64,7 +64,97 @@ void ClearTerminal()
     system("CLS");
 }
 
+void readAndPrintTextAnimation(std::string &attackerAnimationNameFile, std::string &theOneAttacked)
+{
 
+    std::string line;
+    std::string d_fileName = attackerAnimationNameFile + ").txt";
+    std::ifstream file(d_fileName);
+    std::string firstFrameFileNameEnemy = theOneAttacked + "1).txt";
+    std::string line2;
+    std::ifstream file2(firstFrameFileNameEnemy);
+    // std::system("pause");
 
+    if (file.is_open())
+    {
+        while (std::getline(file, line))
+        {
 
+            if (firstFrameFileNameEnemy == "WarriorAttack (1).txt" || firstFrameFileNameEnemy == "WizardAttack (1).txt" || firstFrameFileNameEnemy == "RogueAttack (1).txt")
+            {
+                std::getline(file2, line2);
 
+                std::cout << line2;
+
+                std::cout << line;
+            }
+            else
+            {
+                std::cout << line;
+                std::getline(file2, line2);
+                std::cout << line2;
+            }
+            // std::cout << line;
+            // std::getline(file2, line2);
+            // std::cout << line2;
+        }
+        file.close();
+        file2.close();
+    }
+}
+
+void playerAttackAnimation(Player *&player, Enemy *&enemy)
+{
+    std::chrono::milliseconds ms(1);
+    // WarriorAttack 88
+    // WizardAttack 83
+    // GoblinAttack 71
+    std::string filename = player->getNameAnimation();
+    std::string waitFrame = enemy->getAnimationName();
+
+    std::string dynamicFileName;
+    int indexNum = 1;
+
+    for (int i = 1; i <= 83; i++)
+    {
+
+        std::string index = std::to_string(indexNum);
+
+        dynamicFileName += filename;
+        dynamicFileName += index;
+        readAndPrintTextAnimation(dynamicFileName, waitFrame);
+        index.clear();
+        dynamicFileName.clear();
+        std::this_thread::sleep_for(ms);
+        system("CLS");
+        indexNum++;
+    }
+}
+void EnemyAttackAnimation(Enemy *&enemy, Player *&player)
+{
+    std::chrono::milliseconds ms(1);
+    // WarriorAttack 88
+    // WizardAttack 83
+    // GoblinAttack 71
+    std::string filename = enemy->getAnimationName();
+
+    std::string waitFrame = player->getNameAnimation();
+
+    std::string dynamicFileName;
+    int indexNum = 1;
+
+    for (int i = 1; i <= 83; i++)
+    {
+
+        std::string index = std::to_string(indexNum);
+
+        dynamicFileName += filename;
+        dynamicFileName += index;
+        readAndPrintTextAnimation(dynamicFileName, waitFrame);
+        index.clear();
+        dynamicFileName.clear();
+        std::this_thread::sleep_for(ms);
+        system("CLS");
+        indexNum++;
+    }
+}
