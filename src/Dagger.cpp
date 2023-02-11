@@ -1,18 +1,12 @@
 #include "Dagger.h"
 
-Dagger::Dagger(std::string item_name):Item(item_name,DaggerType)
+Dagger::Dagger(std::string item_name):Item(item_name,DaggerType,DaggerBaseAtk)
 {
-std::cout<< "Dagger Crea\n";
 
 }
 
 Dagger::~Dagger()
 {
-std::cout<< "Dagger Dest\n";
 
 }
 
-int Dagger::getWeaponAttack()
-{
-    return daggerAttack;
-}

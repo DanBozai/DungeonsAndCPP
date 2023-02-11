@@ -1,13 +1,11 @@
 #include "Item.h"
 
-Item::Item(std::string item_name, int itemType) : itemName(item_name), idTypeItem(itemType)
+Item::Item(std::string item_name, int itemType, int itemAttack) : itemName(item_name), idTypeItem(itemType), weaponAtk(itemAttack)
 {
-    std::cout << "Item Crea\n";
 }
 
 Item::~Item()
 {
-    std::cout << "Item Dest\n";
 }
 
 void Item::getItemName()
@@ -22,8 +20,6 @@ int Item::getIdWeaponType()
 
 int Item::getWeaponAttack()
 {
-    int item=0;
-     
-        return item; 
-    
+
+    return weaponAtk;
 }

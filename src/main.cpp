@@ -27,13 +27,13 @@ int main()
 
         player = SetupPlayer();
         std::cout << player->getPlayerType() << std::endl;
-        CrossRoadsScene(player, player->getInventory());
+        CrossRoadsScene(player);
     }
 
     else
     {
     }
-    //
+    
     std::cout << "Clear Memory\n";
     system("pause");
 

@@ -1,13 +1,11 @@
 #include "Enemy.h"
 
-Enemy::Enemy(std::string AttackAnimationName) : AnimationTextFileName(AttackAnimationName)
+Enemy::Enemy(std::string enemy_name, int baseAttackEnemy,int baseHealthEnemy, std::string AttackAnimationName) : AnimationTextFileName(AttackAnimationName), enemyAttack(baseAttackEnemy),enemyHealth(baseHealthEnemy), enemyName(enemy_name)
 {
-    std::cout << "Enemy Crea\n";
 }
 
 Enemy::~Enemy()
 {
-    std::cout << "Enemy Dest\n";
 }
 
 void Enemy::printEnemyName()
@@ -15,15 +13,21 @@ void Enemy::printEnemyName()
     std::cout << enemyName << std::endl;
 }
 
-void Enemy::printEnemyAttack()
+int Enemy::Attack()
 {
+    return enemyAttack;
+}
+
+void Enemy::EnemyAppear()
+{
+    std::cout << "The " << enemyName << " appear in front of you!\n";
 }
 
 int Enemy::generateRandomEnemy()
 {
 
-    std::random_device rd;  // Will be used to obtain a seed for the random number engine
-    std::mt19937 gen(rd()); // Standard mersenne_twister_engine seeded with rd()
+    std::random_device rd;
+    std::mt19937 gen(rd());
     std::uniform_int_distribution<> distribNum(OrcType, GoblinType);
     int randomNumber = distribNum(gen);
 

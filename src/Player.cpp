@@ -1,13 +1,15 @@
 #include "Player.h"
 
-Player::Player(std::string name, int classType,std::string AttackAnimationName) : m_name(name), idTypePlayerClass(classType),AnimationTextFileName(AttackAnimationName)
+Player::Player(std::string name, int classType, int playerAttackBase, int baseHealthClass, std::string AttackAnimationName) : m_name(name),
+                                                                                                                              playerAttack(playerAttackBase),
+                                                                                                                              playerHealth(baseHealthClass),
+                                                                                                                              idTypePlayerClass(classType),
+                                                                                                                              AnimationTextFileName(AttackAnimationName)
 {
-    std::cout << "Player Created\n\n";
 }
 
 Player::~Player()
 {
-    std::cout << "Player Dest\n";
 }
 
 void Player::getName()
@@ -34,22 +36,19 @@ Item *Player::CreateWeaponItem()
         Rod *rodPtr = new Rod("The Dark Rod");
         weapon = rodPtr;
         Inventory.push_back(weapon);
-        // playerPtr->addItemToInventory(weapon);
     }
     else if (getPlayerType() == WarriorType)
     {
-        Sword *swordPtr = new Sword("Long Sword");
+        Sword *swordPtr = new Sword("The Long Sword");
 
         weapon = swordPtr;
         Inventory.push_back(weapon);
-        // playerPtr->addItemToInventory(weapon);
     }
     else if (getPlayerType() == RogueType)
     {
         Dagger *daggerPtr = new Dagger("The Bloody Dagger");
         weapon = daggerPtr;
         Inventory.push_back(weapon);
-        // playerPtr->addItemToInventory(weapon);
     }
 
     return weapon;
@@ -91,6 +90,21 @@ void Player::FindWeaponTypeInInventory()
 void Player::equipWeapon()
 {
     FindWeaponTypeInInventory();
+}
+
+int Player::getPlayerHealth()
+{
+    return playerHealth;
+}
+
+int Player::getPlayerAttack()
+{
+    int weaponAttack = 0;
+    if (WeaponSlot != nullptr)
+    {
+        weaponAttack = WeaponSlot->getWeaponAttack();
+    }
+    return playerAttack + weaponAttack;
 }
 
 std::vector<Item *> &Player::getInventory()

@@ -105,7 +105,7 @@ void readAndPrintTextAnimation(std::string &attackerAnimationNameFile, std::stri
 
 void playerAttackAnimation(Player *&player, Enemy *&enemy)
 {
-    std::chrono::milliseconds ms(1);
+    std::chrono::milliseconds ms(10);
     // WarriorAttack 88
     // WizardAttack 83
     // GoblinAttack 71
@@ -157,4 +157,33 @@ void EnemyAttackAnimation(Enemy *&enemy, Player *&player)
         system("CLS");
         indexNum++;
     }
+}
+
+Enemy *CreateEnemy()
+{
+    Enemy *ptrEnemy = nullptr;
+    int monsterId = ptrEnemy->generateRandomEnemy();
+
+    switch (monsterId)
+    {
+    case OrcType:
+        ptrEnemy = new Orc();
+        break;
+    case TrollType:
+        ptrEnemy = new Troll();
+
+        break;
+    case GoblinType:
+        ptrEnemy = new Goblin();
+
+        break;
+    default:
+        break;
+    }
+    if (ptrEnemy != nullptr)
+    {
+        ptrEnemy->EnemyAppear();
+    }
+    system("pause");
+    return ptrEnemy;
 }

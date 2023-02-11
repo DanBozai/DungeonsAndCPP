@@ -1,6 +1,6 @@
 #include "Rogue.h"
 
-Rogue::Rogue(std::string name) : Player(name,RogueType,"RogueAttack (")
+Rogue::Rogue(std::string name) : Player(name,RogueType,RogueAttack,RogueHealth,"RogueAttack (")
 {
     std::cout << "Welcome to DungeonsAndCPP\n";
     std::cout << name << ", as a rogue, your cunning and agility will be your greatest assets as you navigate the world and undertake daring endeavors.\n";
@@ -12,7 +12,6 @@ Rogue::Rogue(std::string name) : Player(name,RogueType,"RogueAttack (")
 
 Rogue::~Rogue()
 {
-    std::cout << "Rogue Dest\n";
 }
 
 void Rogue::Attack()

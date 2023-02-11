@@ -3,19 +3,14 @@
 
 #pragma once
 #include "Enemy.h"
-class Troll:public Enemy
+class Troll : public Enemy
 {
 public:
     Troll();
     ~Troll();
-    virtual void printEnemyName() override;
-    virtual void printEnemyAttack() override;
-
+    void printEnemyName() override;
 
 private:
-const std::string enemyName;
-const unsigned int Attack=5;
-
 };
 
 #endif

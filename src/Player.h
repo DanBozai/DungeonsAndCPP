@@ -18,12 +18,12 @@ enum playerTypeClass
     WarriorType = 2,
     RogueType = 3
 };
+
 class Player
 {
 public:
-    Player(std::string name, int classType,std::string AttackAnimationName);
+    Player(std::string name, int classType, int playerAttackBase, int baseHealthClass, std::string AttackAnimationName);
     virtual ~Player();
-
 
     void getName();
     std::vector<Item *> &getInventory();
@@ -32,21 +32,38 @@ public:
     Item *CreateWeaponItem();
     virtual std::string getNameAnimation();
     void equipWeapon();
-    
+    int getPlayerHealth();
+    int getPlayerAttack();
 
 private:
-    const int idTypePlayerClass;
-    unsigned int Health;
     virtual void Attack();
     const std::string m_name;
 
     std::vector<Item *> Inventory;
-    Item *WeaponSlot=nullptr;
+    Item *WeaponSlot = nullptr;
     const std::string AnimationTextFileName;
     void FindWeaponTypeInInventory();
-    
 
 protected:
+    const int idTypePlayerClass;
+    int playerHealth;
+    int playerAttack;
+
+protected:
+    enum playerBaseHealth
+    {
+        WizardHealth = 800,
+        RogueHealth = 900,
+        WarriorHealth = 1000
+
+    };
+    enum playerBaseAttack
+    {
+        WizardAttack = 80,
+        WarriorAttack = 100,
+        RogueAttack = 120
+
+    };
 };
 
 #endif

@@ -8,12 +8,9 @@ class Goblin : public Enemy
 public:
     Goblin();
     ~Goblin();
-    virtual void printEnemyName() override;
-    virtual void printEnemyAttack() override;
-
+    void printEnemyName() override;
 
 private:
-    const std::string enemyName;
     const unsigned int Attack = 5;
 };
 

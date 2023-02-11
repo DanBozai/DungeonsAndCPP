@@ -20,13 +20,13 @@
 
 void CleanTerminal();
 
-void CrossRoadsScene(Player *&pt, std::vector<Item *> &inventoryPtr);
+void CrossRoadsScene(Player *&pt);
 
-void ForestScene(Player* &playerPtr, std::vector<Item *> &inventoryPtr);
-void VillageScene(Player* &playerPtr, std::vector<Item *> &inventoryPtr);
-void CaveScene(Player* &playerPtr, std::vector<Item *> &inventoryPtr);
+void ForestScene(Player* &playerPtr);
+void VillageScene(Player* &playerPtr);
+void CaveScene(Player* &playerPtr);
 
 bool chestScene();
-void BattleScene();
+Enemy * CreateEnemy();
 
 #endif // __SCENES_H__

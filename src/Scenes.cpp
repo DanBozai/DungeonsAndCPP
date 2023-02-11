@@ -1,6 +1,6 @@
 #include "Scenes.h"
 
-void ForestScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
+void ForestScene(Player *&playerPtr)
 {
 
     std::cout << "You entered in Forest" << std::endl;
@@ -9,11 +9,14 @@ void ForestScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
     }
-    // BattleScene();
-    // playerPtr->playAnimation();
+    Enemy *Monster =CreateEnemy();
+    playerAttackAnimation(playerPtr, Monster);
+
+    EnemyAttackAnimation(Monster,playerPtr);
+    delete Monster;
 }
 
-void VillageScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
+void VillageScene(Player *&playerPtr)
 {
     std::cout << "You entered in Village" << std::endl;
     if (chestScene())
@@ -21,10 +24,14 @@ void VillageScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
     }
-    // BattleScene();
+    Enemy *Monster =CreateEnemy();
+    playerAttackAnimation(playerPtr, Monster);
+
+    EnemyAttackAnimation(Monster,playerPtr);
+    delete Monster;
 }
 
-void CaveScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
+void CaveScene(Player *&playerPtr)
 {
     std::cout << "You entered in Cave" << std::endl;
 
@@ -32,21 +39,20 @@ void CaveScene(Player *&playerPtr, std::vector<Item *> &inventoryPtr)
     {
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
+        std::cout<< playerPtr->getPlayerAttack();
     }
-    Enemy *goblin = new Goblin();
-    playerAttackAnimation(playerPtr, goblin);
+    Enemy *Monster =CreateEnemy();
+    playerAttackAnimation(playerPtr, Monster);
 
-    // std::cout<< "next attack goblin\n";
-    // system("pause");
-    EnemyAttackAnimation(goblin,playerPtr);
-    delete goblin;
+    EnemyAttackAnimation(Monster,playerPtr);
+    delete Monster;
 }
 
 bool chestScene()
 {
     bool IsValid = false;
     std::string askPlayerIfOpenChest;
-    std::cout << "In front of you is a chest. Do you want to open it?\n";
+    std::cout << "In front of you is a chest. Do you want to open?\n";
     std::cout << "1. Yes\n";
     std::cout << "2. No\n";
 
@@ -68,7 +74,7 @@ void CleanTerminal()
     system("CLS");
 }
 
-void CrossRoadsScene(Player *&playerP, std::vector<Item *> &inventoryPtr)
+void CrossRoadsScene(Player *&playerP)
 {
     std::string askTravel;
 
@@ -81,42 +87,17 @@ void CrossRoadsScene(Player *&playerP, std::vector<Item *> &inventoryPtr)
     if (askTravel == "1" || askTravel == "Forest" || askTravel == "forest")
     {
         CleanTerminal();
-        ForestScene(playerP, inventoryPtr);
+        ForestScene(playerP);
     }
     else if (askTravel == "2" || askTravel == "Village" || askTravel == "village")
     {
         CleanTerminal();
-        VillageScene(playerP, inventoryPtr);
+        VillageScene(playerP);
     }
     else if (askTravel == "3" || askTravel == "Cave" || askTravel == "cave")
     {
         CleanTerminal();
-        CaveScene(playerP, inventoryPtr);
+        CaveScene(playerP);
     }
 }
 
-void BattleScene()
-{
-    Enemy *ptrEnemy = nullptr;
-    int monsterId = ptrEnemy->generateRandomEnemy();
-
-    switch (monsterId)
-    {
-    case OrcType:
-        ptrEnemy = new Orc();
-        break;
-    case TrollType:
-        ptrEnemy = new Troll();
-
-        break;
-    case GoblinType:
-        ptrEnemy = new Goblin();
-
-        break;
-    default:
-        break;
-    }
-
-    ptrEnemy->printEnemyAttack();
-    delete ptrEnemy;
-}

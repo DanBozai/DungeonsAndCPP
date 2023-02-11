@@ -1,13 +1,11 @@
 #include "Orc.h"
 
-Orc::Orc() : enemyName("Orc"),Enemy("OrcAttack (")
+Orc::Orc() : Enemy("Orc",OrcAttack,OrcHealth,"OrcAttack (")
 {
-    std::cout << "Orc Crea\n";
 }
 
 Orc::~Orc()
 {
-    std::cout << "Orc Dest\n";
 }
 
 void Orc::printEnemyName()
@@ -16,8 +14,4 @@ void Orc::printEnemyName()
     
 }
 
-void Orc::printEnemyAttack()
-{
-    std::cout<< enemyName<<" attacks you with "<< Attack <<" power!\n";
-    
-}
+

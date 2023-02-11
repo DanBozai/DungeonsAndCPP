@@ -24,4 +24,5 @@ void ClearTerminal();
 void readAndPrintTextAnimation(std::string &attackerAnimationNameFile, std::string &EnemyFrame);
 void playerAttackAnimation(Player *&player, Enemy *&enemy);
 void EnemyAttackAnimation(Enemy *&enemy,Player *&player);
+Enemy * CreateEnemy();
 #endif // __MISC_H__

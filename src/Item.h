@@ -16,18 +16,26 @@ enum WeaponTypeClass
 class Item
 {
 public:
-    Item(std::string item_name, int itemType);
+    Item(std::string item_name, int itemType, int itemAttack);
     virtual ~Item();
     void getItemName();
     int getIdWeaponType();
 
-    virtual int getWeaponAttack();
+    int getWeaponAttack();
 
 private:
     const int idTypeItem;
     std::string itemName;
+    const int weaponAtk;
 
 protected:
+    enum WeaponAttack
+    {
+        SwordBaseAtk = 120,
+        RodBaseAtk = 150,
+        DaggerBaseAtk = 200
+
+    };
 };
 
 #endif
