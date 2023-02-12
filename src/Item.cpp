@@ -10,7 +10,7 @@ Item::~Item()
 
 void Item::getItemName()
 {
-    std::cout << itemName << std::endl;
+    std::cout << itemName;
 }
 
 int Item::getIdWeaponType()

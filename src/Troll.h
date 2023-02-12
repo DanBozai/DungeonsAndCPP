@@ -8,7 +8,6 @@ class Troll : public Enemy
 public:
     Troll();
     ~Troll();
-    void printEnemyName() override;
 
 private:
 };

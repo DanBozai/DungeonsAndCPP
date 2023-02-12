@@ -1,6 +1,6 @@
 #include "Scenes.h"
 
-void ForestScene(Player *&playerPtr)
+void ForestScene(Player *&playerPtr, sf::Music &musicP)
 {
 
     std::cout << "You entered in Forest" << std::endl;
@@ -9,14 +9,10 @@ void ForestScene(Player *&playerPtr)
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
     }
-    Enemy *Monster =CreateEnemy();
-    playerAttackAnimation(playerPtr, Monster);
-
-    EnemyAttackAnimation(Monster,playerPtr);
-    delete Monster;
+    BattleScene(playerPtr, musicP);
 }
 
-void VillageScene(Player *&playerPtr)
+void VillageScene(Player *&playerPtr, sf::Music &musicP)
 {
     std::cout << "You entered in Village" << std::endl;
     if (chestScene())
@@ -24,28 +20,68 @@ void VillageScene(Player *&playerPtr)
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
     }
-    Enemy *Monster =CreateEnemy();
-    playerAttackAnimation(playerPtr, Monster);
-
-    EnemyAttackAnimation(Monster,playerPtr);
-    delete Monster;
+    BattleScene(playerPtr, musicP);
 }
 
-void CaveScene(Player *&playerPtr)
+void CaveScene(Player *&playerPtr, sf::Music &musicP)
 {
+
     std::cout << "You entered in Cave" << std::endl;
 
     if (chestScene())
     {
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
-        std::cout<< playerPtr->getPlayerAttack();
+        BattleScene(playerPtr, musicP);
     }
-    Enemy *Monster =CreateEnemy();
-    playerAttackAnimation(playerPtr, Monster);
+}
 
-    EnemyAttackAnimation(Monster,playerPtr);
+bool BattleScene(Player *&playerPtr, sf::Music &musicParamB)
+{
+    musicParamB.stop();
+    sf::Music BattleMusic;
+    BattleMusic.openFromFile("BattleFinal.wav");
+    BattleMusic.setVolume(50);
+    BattleMusic.setLoop(true);
+    BattleMusic.play();
+
+    bool battleResult = false;
+    Enemy *Monster = CreateEnemy();
+    int playerHp = playerPtr->getPlayerHealth();
+    int monsterHp = Monster->getEnemyHp();
+
+    do
+    {
+        playerAttackAnimation(playerPtr, Monster);
+        monsterHp -= playerPtr->getPlayerAttack();
+        std::cout << "You attack " << Monster->printEnemyName() << " with " << playerPtr->getPlayerAttack() << " damage\n";
+        std::cout << Monster->printEnemyName() << " HP " << monsterHp << "/" << Monster->getEnemyHp() << "\n";
+        system("pause");
+        if (monsterHp <= 0)
+        {
+            std::cout << "You won!"
+                      << "\n";
+            battleResult = true;
+            break;
+        }
+
+        EnemyAttackAnimation(Monster, playerPtr);
+        playerHp -= Monster->getEnemyAttack();
+
+        std::cout << Monster->printEnemyName() << " attacked you with " << Monster->getEnemyAttack() << " damage\n";
+        std::cout << " Your HP " << playerHp << "/" << playerPtr->getPlayerHealth() << "\n";
+        system("pause");
+
+        if (playerHp <= 0)
+        {
+            std::cout << "Defeat \n";
+            battleResult = false;
+            break;
+        }
+    } while (!playerHp <= 0 || monsterHp <= 0);
+    BattleMusic.stop();
     delete Monster;
+    return battleResult;
 }
 
 bool chestScene()
@@ -76,8 +112,14 @@ void CleanTerminal()
 
 void CrossRoadsScene(Player *&playerP)
 {
-    std::string askTravel;
+    sf::Music ExploringMusic;
 
+    ExploringMusic.openFromFile("Exploring.wav");
+    ExploringMusic.setVolume(50);
+    ExploringMusic.setLoop(true);
+    ExploringMusic.play();
+
+    std::string askTravel;
     std::cout << "You are at crossroads, where you want to go?\n";
     std::cout << "1. Forest\n";
     std::cout << "2. Village\n";
@@ -87,17 +129,16 @@ void CrossRoadsScene(Player *&playerP)
     if (askTravel == "1" || askTravel == "Forest" || askTravel == "forest")
     {
         CleanTerminal();
-        ForestScene(playerP);
+        ForestScene(playerP, ExploringMusic);
     }
     else if (askTravel == "2" || askTravel == "Village" || askTravel == "village")
     {
         CleanTerminal();
-        VillageScene(playerP);
+        VillageScene(playerP, ExploringMusic);
     }
     else if (askTravel == "3" || askTravel == "Cave" || askTravel == "cave")
     {
         CleanTerminal();
-        CaveScene(playerP);
+        CaveScene(playerP, ExploringMusic);
     }
 }
-

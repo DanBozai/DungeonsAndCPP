@@ -10,10 +10,3 @@ Troll::~Troll()
 
 }
 
-void Troll::printEnemyName()
-{
-    std::cout<<enemyName<<std::endl;
-    
-}
-
-

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <SFML/Audio.hpp>
 #include "Misc.h"
 #include "Scenes.h"
 #include "Item.h"
@@ -14,27 +13,28 @@ void InventoryClean(Item *&invPtr)
 }
 int main()
 {
-
-    sf::Music music;
-    music.openFromFile("Main_Menu.wav");
-    music.setVolume(60);
-    music.stop();
+    sf::Music ExplorationMusic;
+    sf::Music MainMenuMusic;
+    MainMenuMusic.openFromFile("Main_Menu.wav");
+    MainMenuMusic.setVolume(50);
+    MainMenuMusic.setLoop(true);
+    std::cout << MainMenuMusic.getLoop();
 
     Player *player = nullptr;
     if (IntroText())
     {
-        music.play();
+        MainMenuMusic.play();
 
         player = SetupPlayer();
-        std::cout << player->getPlayerType() << std::endl;
+        MainMenuMusic.stop();
         CrossRoadsScene(player);
     }
 
     else
     {
     }
-    
-    std::cout << "Clear Memory\n";
+
+    std::cout << "Quit Game\n";
     system("pause");
 
     for (auto Item : player->getInventory())

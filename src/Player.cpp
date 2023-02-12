@@ -83,7 +83,7 @@ void Player::FindWeaponTypeInInventory()
     if (WeaponSlot != nullptr)
     {
         WeaponSlot->getItemName();
-        std::cout << "\n";
+        std::cout << " equipped\n";
     }
 }
 

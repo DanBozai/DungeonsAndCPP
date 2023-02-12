@@ -10,10 +10,6 @@ Goblin::~Goblin()
 
 }
 
-void Goblin::printEnemyName()
-{
-    std::cout<<enemyName<<std::endl;
-    
-}
+
 
 

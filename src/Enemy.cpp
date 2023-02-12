@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-Enemy::Enemy(std::string enemy_name, int baseAttackEnemy,int baseHealthEnemy, std::string AttackAnimationName) : AnimationTextFileName(AttackAnimationName), enemyAttack(baseAttackEnemy),enemyHealth(baseHealthEnemy), enemyName(enemy_name)
+Enemy::Enemy(std::string enemy_name, int baseAttackEnemy, int baseHealthEnemy, std::string AttackAnimationName) : AnimationTextFileName(AttackAnimationName), enemyAttack(baseAttackEnemy), enemyHealth(baseHealthEnemy), enemyName(enemy_name)
 {
 }
 
@@ -8,9 +8,9 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::printEnemyName()
+std::string Enemy::printEnemyName()
 {
-    std::cout << enemyName << std::endl;
+    return enemyName;
 }
 
 int Enemy::Attack()
@@ -21,6 +21,16 @@ int Enemy::Attack()
 void Enemy::EnemyAppear()
 {
     std::cout << "The " << enemyName << " appear in front of you!\n";
+}
+
+int Enemy::getEnemyHp()
+{
+    return enemyHealth;
+}
+
+int Enemy::getEnemyAttack()
+{
+    return enemyAttack;
 }
 
 int Enemy::generateRandomEnemy()

@@ -8,10 +8,4 @@ Orc::~Orc()
 {
 }
 
-void Orc::printEnemyName()
-{
-    std::cout<<enemyName<<std::endl;
-    
-}
-
 

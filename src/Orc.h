@@ -9,7 +9,6 @@ class Orc : public Enemy
 public:
     Orc();
     ~Orc();
-    void printEnemyName() override;
 
 private:
 };

@@ -19,12 +19,13 @@ class Enemy
 public:
     Enemy(std::string enemy_name,int baseAttackEnemy,int baseHealthEnemy, std::string AttackAnimationName);
     virtual ~Enemy();
-    virtual void printEnemyName();
+    virtual std::string printEnemyName();
     int Attack();
     int generateRandomEnemy();
     std::string getAnimationName();
     void EnemyAppear();
-    
+    int getEnemyHp();
+    int getEnemyAttack();
 private:
     const std::string AnimationTextFileName;
 
@@ -41,9 +42,9 @@ protected:
     };
     enum EnemyBaseAttack
     {
-        OrcAttack=50,
-        GoblinAttack=65,
-        TrollAttack=95,
+        OrcAttack=100,
+        GoblinAttack=150,
+        TrollAttack=300,
     };
 };
 

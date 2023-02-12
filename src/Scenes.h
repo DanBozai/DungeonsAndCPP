@@ -22,11 +22,12 @@ void CleanTerminal();
 
 void CrossRoadsScene(Player *&pt);
 
-void ForestScene(Player* &playerPtr);
-void VillageScene(Player* &playerPtr);
-void CaveScene(Player* &playerPtr);
+void ForestScene(Player *&playerPtr, sf::Music &musicP);
+void VillageScene(Player *&playerPtr, sf::Music &musicP);
+void CaveScene(Player *&playerPtr, sf::Music &musicP);
+bool BattleScene(Player *&playerPtr, sf::Music &musicP);
 
 bool chestScene();
-Enemy * CreateEnemy();
+Enemy *CreateEnemy();
 
 #endif // __SCENES_H__

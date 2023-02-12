@@ -8,7 +8,6 @@ class Goblin : public Enemy
 public:
     Goblin();
     ~Goblin();
-    void printEnemyName() override;
 
 private:
     const unsigned int Attack = 5;

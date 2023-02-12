@@ -94,9 +94,7 @@ void readAndPrintTextAnimation(std::string &attackerAnimationNameFile, std::stri
                 std::getline(file2, line2);
                 std::cout << line2;
             }
-            // std::cout << line;
-            // std::getline(file2, line2);
-            // std::cout << line2;
+            
         }
         file.close();
         file2.close();
@@ -159,6 +157,8 @@ void EnemyAttackAnimation(Enemy *&enemy, Player *&player)
     }
 }
 
+
+
 Enemy *CreateEnemy()
 {
     Enemy *ptrEnemy = nullptr;
@@ -184,6 +184,5 @@ Enemy *CreateEnemy()
     {
         ptrEnemy->EnemyAppear();
     }
-    system("pause");
     return ptrEnemy;
 }
