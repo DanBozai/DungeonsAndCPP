@@ -1,5 +1,8 @@
 #include "Scenes.h"
 
+/// @brief present the forest scene and the player find a chest and the battle scene will start
+/// @param playerPtr pointer reference for to player instance
+/// @param musicP reference to the music (if want to stop and play another music)
 void ForestScene(Player *&playerPtr, sf::Music &musicP)
 {
 
@@ -8,10 +11,13 @@ void ForestScene(Player *&playerPtr, sf::Music &musicP)
     {
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
+        system("pause");
     }
     BattleScene(playerPtr, musicP);
 }
-
+/// @brief present the Village scene and the player find a chest and the battle scene will start
+/// @param playerPtr  pointer reference to the player instance
+/// @param musicP reference to the music (if want to stop and play another music)
 void VillageScene(Player *&playerPtr, sf::Music &musicP)
 {
     std::cout << "You entered in Village" << std::endl;
@@ -19,10 +25,13 @@ void VillageScene(Player *&playerPtr, sf::Music &musicP)
     {
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
+        system("pause");
     }
     BattleScene(playerPtr, musicP);
 }
-
+/// @brief present the Cave scene and the player find a chest and the battle scene will start
+/// @param playerPtr  pointer reference to the player instance
+/// @param musicP reference to the music (if want to stop and play another music)
 void CaveScene(Player *&playerPtr, sf::Music &musicP)
 {
 
@@ -32,13 +41,19 @@ void CaveScene(Player *&playerPtr, sf::Music &musicP)
     {
         playerPtr->CreateWeaponItem();
         playerPtr->equipWeapon();
-        BattleScene(playerPtr, musicP);
+        system("pause");
     }
+    BattleScene(playerPtr, musicP);
 }
-
-bool BattleScene(Player *&playerPtr, sf::Music &musicParamB)
+/// @brief the battle music and the fight mechanics will begin
+/// @param playerPtr pointer reference to the player instance
+/// @param musicP reference to the music (if want to stop and play another music)
+/// @return boolean type value based the winner (true if player overpower the enemy)
+bool BattleScene(Player *&playerPtr, sf::Music &musicP)
 {
-    musicParamB.stop();
+    /// stop the exploring music
+    musicP.stop();
+    // start the battlemusic
     sf::Music BattleMusic;
     BattleMusic.openFromFile("BattleFinal.wav");
     BattleMusic.setVolume(50);
@@ -46,16 +61,21 @@ bool BattleScene(Player *&playerPtr, sf::Music &musicParamB)
     BattleMusic.play();
 
     bool battleResult = false;
+    // create an enemy
     Enemy *Monster = CreateEnemy();
+    // setup the player and the monster health
     int playerHp = playerPtr->getPlayerHealth();
     int monsterHp = Monster->getEnemyHp();
 
     do
     {
+        // start the visual animation
         playerAttackAnimation(playerPtr, Monster);
+        // decrease the monster health
         monsterHp -= playerPtr->getPlayerAttack();
-        std::cout << "You attack " << Monster->printEnemyName() << " with " << playerPtr->getPlayerAttack() << " damage\n";
-        std::cout << Monster->printEnemyName() << " HP " << monsterHp << "/" << Monster->getEnemyHp() << "\n";
+        //
+        std::cout << "You attacked the " << Monster->getEnemyName() << " with " << playerPtr->getPlayerAttack() << " damage\n";
+        std::cout << Monster->getEnemyName() << " HP " << monsterHp << "/" << Monster->getEnemyHp() << "\n";
         system("pause");
         if (monsterHp <= 0)
         {
@@ -64,11 +84,12 @@ bool BattleScene(Player *&playerPtr, sf::Music &musicParamB)
             battleResult = true;
             break;
         }
-
+        // start the enemy animation
         EnemyAttackAnimation(Monster, playerPtr);
         playerHp -= Monster->getEnemyAttack();
-
-        std::cout << Monster->printEnemyName() << " attacked you with " << Monster->getEnemyAttack() << " damage\n";
+        // display the enemy damage
+        std::cout << "The " << Monster->getEnemyName() << " attacked you with " << Monster->getEnemyAttack() << " damage\n";
+        // display your remaining health and max health
         std::cout << " Your HP " << playerHp << "/" << playerPtr->getPlayerHealth() << "\n";
         system("pause");
 
@@ -79,11 +100,14 @@ bool BattleScene(Player *&playerPtr, sf::Music &musicParamB)
             break;
         }
     } while (!playerHp <= 0 || monsterHp <= 0);
+    // after the fight stop the music
     BattleMusic.stop();
+    // delete the enemy instance from the heap
     delete Monster;
     return battleResult;
 }
-
+/// @brief asks player if want to open the chest
+/// @return boolean type value
 bool chestScene()
 {
     bool IsValid = false;
@@ -95,7 +119,7 @@ bool chestScene()
     std::cin >> askPlayerIfOpenChest;
     if (askPlayerIfOpenChest == "1" || askPlayerIfOpenChest == "Yes" || askPlayerIfOpenChest == "yes")
     {
-        std::cout << "You open the chest\n";
+        std::cout << "The chest will open\n";
         IsValid = true;
     }
     else
@@ -109,7 +133,8 @@ void CleanTerminal()
 {
     system("CLS");
 }
-
+/// @brief start the music and ask player where wants to go, based on the answer will start the next scene
+/// @param playerP plaier pointer reference
 void CrossRoadsScene(Player *&playerP)
 {
     sf::Music ExploringMusic;

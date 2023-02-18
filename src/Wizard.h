@@ -10,7 +10,6 @@ public:
     ~Wizard();
 
 private:
-    void Attack() override;
 };
 
 #endif

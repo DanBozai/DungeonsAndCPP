@@ -16,7 +16,3 @@ Wizard::~Wizard()
 {
 }
 
-void Wizard::Attack()
-{
-    std::cout << "Wizard Atack with" << std::endl;
-}

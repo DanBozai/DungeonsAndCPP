@@ -10,7 +10,6 @@ public:
     ~Rogue();
 
 private:
-    void Attack() override;
 
 };
 

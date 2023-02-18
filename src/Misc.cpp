@@ -1,10 +1,11 @@
 #include "Misc.h"
-
+/// @brief present the story and ask the player if wants to play
+/// @return  boolean type value (yes-continue, no-exit)
 bool IntroText()
 {
     std::string askPlayerWantToPlay;
     bool isValid = false;
-    std::cout << "Intro Text\n";
+    std::cout << "Intro Text.................................\n";
     std::cout << "Do you want to play?\n";
     std::cout << "1. Yes\n";
     std::cout << "2. No\n";
@@ -21,6 +22,8 @@ bool IntroText()
     }
     return isValid;
 }
+/// @brief welcome message, choose a name for the character and presents the classes he can choose (the created class is invoked with new operator)
+/// @return player pointer object for the dynamicaly allocated object(created class)
 Player *SetupPlayer()
 {
     std::string playerName;
@@ -63,7 +66,9 @@ void ClearTerminal()
 
     system("CLS");
 }
-
+/// @brief open the .txt file which contains the ASCII drawn frame
+/// @param attackerAnimationNameFile string  reference name for the attacker (preferably add the getter from the player/enemy ->getEnemyName())
+/// @param theOneAttacked string  reference name for the attacker (preferably add the getter from the player/enemy ->getEnemyName())
 void readAndPrintTextAnimation(std::string &attackerAnimationNameFile, std::string &theOneAttacked)
 {
 
@@ -100,41 +105,54 @@ void readAndPrintTextAnimation(std::string &attackerAnimationNameFile, std::stri
         file2.close();
     }
 }
-
+/// @brief get the string animation name from the instantiated class object and  with a for loop increment the index display animation 
+/// @param player player pointer reference for the instantiated class object 
+/// @param enemy enemy pointer reference for the instantiated class object
 void playerAttackAnimation(Player *&player, Enemy *&enemy)
 {
     std::chrono::milliseconds ms(10);
+
     // WarriorAttack 88
     // WizardAttack 83
     // GoblinAttack 71
-    std::string filename = player->getNameAnimation();
-    std::string waitFrame = enemy->getAnimationName();
+    //get the animation name from the type instantiated class (exemple "WarriorAttack (" / "WizardAttack (" / "TrollAttack (")
+    std::string attackerAnimationTxtName = player->getNameAnimation();
+    std::string waitFrame = enemy->getNameAnimation();
 
     std::string dynamicFileName;
+
     int indexNum = 1;
 
     for (int i = 1; i <= 83; i++)
     {
-
+        // convert the int indexNum to a string
         std::string index = std::to_string(indexNum);
-
-        dynamicFileName += filename;
+        //concatenate the string from attackerAnimationTxtName
+        dynamicFileName += attackerAnimationTxtName;
+        //concatenate the index number (exemple "WarriorAttack (index value")
         dynamicFileName += index;
+        //read and display the ASCII drawn characters from the .txt file
         readAndPrintTextAnimation(dynamicFileName, waitFrame);
+        //clear the index string value
         index.clear();
+        //clear the string input for the function
         dynamicFileName.clear();
+        //pause time for the ms value to run animation more fluid
         std::this_thread::sleep_for(ms);
+        //clear screen
         system("CLS");
+        //increment the index for the number  
         indexNum++;
     }
 }
+
 void EnemyAttackAnimation(Enemy *&enemy, Player *&player)
 {
     std::chrono::milliseconds ms(1);
     // WarriorAttack 88
     // WizardAttack 83
     // GoblinAttack 71
-    std::string filename = enemy->getAnimationName();
+    std::string filename = enemy->getNameAnimation();
 
     std::string waitFrame = player->getNameAnimation();
 
@@ -158,7 +176,8 @@ void EnemyAttackAnimation(Enemy *&enemy, Player *&player)
 }
 
 
-
+/// @brief class pointer function that creates instances on the heap
+/// @return return a pointer to the created instance
 Enemy *CreateEnemy()
 {
     Enemy *ptrEnemy = nullptr;

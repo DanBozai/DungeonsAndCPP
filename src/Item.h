@@ -18,7 +18,7 @@ class Item
 public:
     Item(std::string item_name, int itemType, int itemAttack);
     virtual ~Item();
-    void getItemName();
+    void printItemName();
     int getIdWeaponType();
 
     int getWeaponAttack();

@@ -19,10 +19,10 @@ class Enemy
 public:
     Enemy(std::string enemy_name,int baseAttackEnemy,int baseHealthEnemy, std::string AttackAnimationName);
     virtual ~Enemy();
-    virtual std::string printEnemyName();
+    virtual std::string getEnemyName();
     int Attack();
     int generateRandomEnemy();
-    std::string getAnimationName();
+    std::string getNameAnimation();
     void EnemyAppear();
     int getEnemyHp();
     int getEnemyAttack();

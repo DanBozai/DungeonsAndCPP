@@ -25,18 +25,17 @@ public:
     Player(std::string name, int classType, int playerAttackBase, int baseHealthClass, std::string AttackAnimationName);
     virtual ~Player();
 
-    void getName();
+    void printName();
     std::vector<Item *> &getInventory();
     void addItemToInventory(Item *item);
     int getPlayerType();
-    Item *CreateWeaponItem();
+    void CreateWeaponItem();
     virtual std::string getNameAnimation();
     void equipWeapon();
     int getPlayerHealth();
     int getPlayerAttack();
 
 private:
-    virtual void Attack();
     const std::string m_name;
 
     std::vector<Item *> Inventory;

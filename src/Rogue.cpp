@@ -14,7 +14,3 @@ Rogue::~Rogue()
 {
 }
 
-void Rogue::Attack()
-{
-    std::cout << "Rogue Atack with" << std::endl;
-}

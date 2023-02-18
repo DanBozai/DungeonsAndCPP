@@ -18,8 +18,3 @@ Warrior::~Warrior()
 {
 }
 
-void Warrior::Attack()
-{
-    std::cout << "Warrior Atack with" << std::endl;
-
-}

@@ -11,7 +11,6 @@ public:
 
 private:
     
-    void Attack() override;
 };
 
 #endif
